@@ -22,8 +22,8 @@ app.use((req,res,next)=>{
 })
 app.use((error,req,res,next)=>{
     error.status = error.status || 500;
-    res.status = error.status ;
-    res.send(error) //or render any error page with ejs
+    res.status = error.status ;  //this is the status for the browser
+    res.render("error404",{error}) //or render any error page with ejs
     
 })
 

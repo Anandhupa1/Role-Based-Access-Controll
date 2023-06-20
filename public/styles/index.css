@@ -1,3 +1,18 @@
 body{
-    background-color: aquamarine;
+   align-items: center;
 }
+
+.error-container {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   height: 100vh;
+   background-color: #f8f9fa;
+ }
+
+ .error-image {
+   width: 200px;
+   height: auto;
+   margin-bottom: 20px;
+ }
