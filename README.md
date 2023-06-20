@@ -51,4 +51,11 @@ To run the backend server of this project, you will need to add the following en
 `mongoUrl`
 
 
+## Acknowledgements
+I would like to acknowledge and express my gratitude for the following open-source resources that I utilized to successfully complete this project.
+- [Material Design Bootsrap](https://mdbootstrap.com/)
+
+
+
+
 
