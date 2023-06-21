@@ -1,0 +1,16 @@
+<% if (locals.messages) { %>
+ 
+
+  <% Object.keys(messages).forEach((index)=>{ %>  <%
+  messages[index].forEach((item)=>{ %>
+<div style="margin-left: 10%; margin-right: 10%; margin-top: 10px;" class="alert alert-<%= index%>" role="alert">
+    <strong></strong> <%= item %>
+</div>
+    <% }) %>
+
+<%   }) %>
+
+
+
+
+<% } %>

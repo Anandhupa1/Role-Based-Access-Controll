@@ -125,4 +125,14 @@
 </body>
 <!-- MDB --><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.0/mdb.min.js"></script>
 <!-- vanilla js --><script src="index.js"></script>
+<!-- jquery for alert -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+  // Hide the flash message after 3 seconds
+  setTimeout(function() {
+    $("#flash-message").fadeOut("slow");
+  }, 3000);
+});
+</script>
 </html>

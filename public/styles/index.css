@@ -8,7 +8,7 @@ body{
    align-items: center;
    justify-content: center;
    height: 100vh;
-   background-color: #f8f9fa;
+  
  }
 
  .error-image {
@@ -16,3 +16,30 @@ body{
    height: auto;
    margin-bottom: 20px;
  }
+
+ .badge-advanced {
+  position: relative;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5;
+  text-align: center;
+  text-transform: uppercase;
+  border-radius: 2rem;
+  color: #fff;
+  background-color: #007bff;
+}
+
+.badge-advanced::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 2rem;
+  background-image: linear-gradient(to right, #007bff, #00bcd4);
+  opacity: 0.8;
+  z-index: -1;
+}

@@ -5,14 +5,19 @@
   <div class="container py-5 h-100">
     <div class="row d-flex align-items-center justify-content-center h-100">
       <div class="col-md-8 col-lg-7 col-xl-6">
-        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
+        <img src="https://scalexcloud.com/wp-content/uploads/2021/01/Native-app-development.png"
           class="img-fluid" alt="Phone image">
       </div>
       <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
         <form action="/auth/register" method="post" >
+          <!-- name input -->
+          <div class="form-outline mb-4">
+            <input type="text" name="name"  class="form-control form-control-lg" />
+            <label class="form-label" for="form1Example13">Your Name</label>
+          </div>
           <!-- Email input -->
           <div class="form-outline mb-4">
-            <input type="email" id="email" value="email" class="form-control form-control-lg" />
+            <input type="email" name="email"  class="form-control form-control-lg" />
             <label class="form-label" for="form1Example13">Email address</label>
           </div>
 
@@ -38,7 +43,7 @@
           <div class="form-check mt-3">
              
             <label class="form-check-label" for="form1Example3"> If you already have an account?</label>
-            <a href="#!">login here</a>
+            <a href="/auth/login">login here</a>
           </div>
           <div class="divider d-flex align-items-center my-4">
             <p class="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
