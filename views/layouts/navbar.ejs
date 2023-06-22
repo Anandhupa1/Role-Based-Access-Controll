@@ -30,24 +30,27 @@
         </a>
         <!-- Left links -->
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" href="/">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/user/profile">profile</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Manage User</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/auth/register">Register</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/auth/login">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Logout</a>
-          </li>
+
+          <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+          
+<% if (!user) { %>
+  
+  <li class="nav-item"><a class="nav-link" href="/auth/register">Register</a></li>
+  <li class="nav-item"><a class="nav-link" href="/auth/login">Login</a></li>
+
+<% }else{ %>
+  <li class="nav-item"><a class="nav-link" href="#">Manage User</a></li>
+  <li class="nav-item"><a class="nav-link" href="/user/profile">profile</a></li>
+  <li class="nav-item"><a class="nav-link" href="#">Logout</a></li>
+<% } %>
+
+
+
+
+         
+          
+         
+          
         </ul>
         <!-- Left links -->
       </div>
@@ -56,8 +59,7 @@
       <!-- Right elements -->
       <div class="d-flex align-items-center">
       
-      
-        <!-- Avatar -->
+      <% if (user) { %>
         <div class="dropdown">
           <a
             class="dropdown-toggle d-flex align-items-center hidden-arrow"
@@ -68,7 +70,7 @@
             aria-expanded="false"
           >
             <img
-              src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
+              src=<%= user.profilePic  %>
               class="rounded-circle"
               height="25"
               alt="Black and White Portrait of a Man"
@@ -88,6 +90,9 @@
             </li>
           </ul>
         </div>
+      <% } %>
+        <!-- Avatar -->
+        
       </div>
       <!-- Right elements -->
     </div>

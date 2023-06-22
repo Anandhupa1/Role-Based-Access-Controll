@@ -1,7 +1,8 @@
 const router = require("express").Router();
+const bcrypt = require("bcrypt")
 const  { UserModel} = require("../models/user.model")
-
-router.get("/login",async(req,res,next)=>{
+const sessionStorage = require("sessionstorage");
+router.get("/login",ensureNotAuthenticated,async(req,res,next)=>{
     try{
 
         res.render('login');
@@ -34,9 +35,19 @@ router.post("/login",async(req,res,next)=>{
                 const messages = req.flash();
                 res.render("register",{messages})
             }else{
+                const val = await bcrypt.compare(req.body.password,userData.password);
+                if(!val){
+                    req.flash("warning","password doesn't match");
+                    const messages = req.flash();
+                    res.render("login",{messages})
+                }
+                else{
                 req.flash("success",` Hi ${userData.name} !, login successfull `);
                 const messages = req.flash();
-                res.render("success",{messages})
+                //res.send(userData)
+                 req.session.user = userData;
+                 res.render("authSuccessfull",{messages,newUser:userData,msg:`Happy to meet you again`})
+                }
             }
             
         
@@ -46,7 +57,7 @@ router.post("/login",async(req,res,next)=>{
     }catch(err){console.log("error in index router",err)}
 })
 
-router.get("/register",async(req,res,next)=>{
+router.get("/register",ensureNotAuthenticated,async(req,res,next)=>{
     try{
         // req.flash("erro3","some errror from flash")
         // const messages = req.flash();
@@ -65,7 +76,13 @@ router.post("/register",async(req,res,next)=>{
     else {
         
         let userExists = await UserModel.findOne({email:req.body.email})
-        if(userExists){res.redirect("/auth/login")}
+        if(userExists){
+            req.flash("warning","user already exists ,please register");
+            const messages = req.flash();
+            res.render("login",{messages})
+            
+        
+        }
         else {
             let out = new UserModel(req.body);
             await out.save();
@@ -84,3 +101,13 @@ router.post("/logout",async(req,res,next)=>{
 })
 
 module.exports=router;
+
+
+
+function ensureNotAuthenticated(req,res,next){
+    if(req.session.user){
+        res.redirect("/")
+    }else{
+        next();
+    }
+}
