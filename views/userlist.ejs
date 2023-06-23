@@ -1,0 +1,61 @@
+<%- include('./layouts/header') %>
+
+<h1 style="text-align: center; margin: 20px;">All users </h1>
+<div class="container mx-3 ">
+<table style="margin: 20px;" class="table align-middle mb-0 bg-white">
+    <thead class="bg-light">
+      <tr>
+        <th>Name</th>
+        <th>email</th>
+        <th>role</th>
+        <th>last seen</th>
+        <th>change role</th>
+      </tr>
+    </thead>
+    <tbody>
+        
+       <% for( let i = 0; i < users.length; i++ ) { %>
+        <tr>
+            <td>
+              <div class="d-flex align-items-center">
+                <img
+                    src=<%= users[i].profilePic  %>
+                    alt=""
+                    style="width: 45px; height: 45px"
+                    class="rounded-circle"
+                    />
+                <div class="ms-3">
+                  <p class="fw-bold mb-1"><%= users[i].name %></p>
+                <a href="/admin/user/<%= users[i]._id  %>"> <p class="text-muted mb-0">id : <%= users[i]._id %></p></a> 
+                </div>
+              </div>
+            </td>
+            <td>
+                <a href="/admin/user/<%= users[i]._id  %>">   <p class="fw-normal mb-1"><%= users[i].email  %></p> </a>
+             
+            </td>
+            <td>
+              <span class="badge badge-success rounded-pill d-inline"><%= users[i].role  %></span>
+            </td>
+           
+            <td>
+              <select type="button" class="btn btn-link btn-sm btn-rounded">
+                <option value="">admin</option>
+                <option value="">admin</option>
+                <option value="">admin</option>
+              </select>
+            </td>
+            <td>
+                <p class="fw-normal mb-1">update</p>
+               
+            </td>
+          </tr>
+       <% } %>
+     
+      
+      
+    </tbody>
+  </table>
+</div>
+
+  <%- include('./layouts/footer') %>

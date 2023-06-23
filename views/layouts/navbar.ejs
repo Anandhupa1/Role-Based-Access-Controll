@@ -39,7 +39,9 @@
   <li class="nav-item"><a class="nav-link" href="/auth/login">Login</a></li>
 
 <% }else{ %>
-  <li class="nav-item"><a class="nav-link" href="#">Manage User</a></li>
+  <% if (user.role==="ADMIN" || adminView) { %>
+  <li class="nav-item"><a class="nav-link" href="/admin/allusers">Manage User</a></li>
+  <% } %>
   <li class="nav-item"><a class="nav-link" href="/user/profile">profile</a></li>
   <li class="nav-item"><a class="nav-link" href="#">Logout</a></li>
 <% } %>
