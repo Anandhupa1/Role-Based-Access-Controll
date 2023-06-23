@@ -8,8 +8,8 @@
         <th>Name</th>
         <th>email</th>
         <th>role</th>
-        <th>last seen</th>
         <th>change role</th>
+      
       </tr>
     </thead>
     <tbody>
@@ -39,16 +39,17 @@
             </td>
            
             <td>
-              <select type="button" class="btn btn-link btn-sm btn-rounded">
-                <option value="">admin</option>
-                <option value="">admin</option>
-                <option value="">admin</option>
+            <form action='/admin/update-role' method="post">
+              <input name="id" value=<%= users[i]._id%> style="display: none;" type="text">
+              <select name="role" type="button" class="btn btn-link btn-sm btn-rounded">
+                <option value="ADMIN" <%= users[i].role==="ADMIN"?"selected":""; %> >Admin</option>
+                <option value="USER" <%= users[i].role==="USER"?"selected":""; %> >User</option>
+                <option value="MODERATOR" <%= users[i].role==="MODERATOR"?"selected":""; %> >Moderator</option>
               </select>
+              <button class="btn btn-light" type="submit">update</button>
+            </form>
             </td>
-            <td>
-                <p class="fw-normal mb-1">update</p>
-               
-            </td>
+           
           </tr>
        <% } %>
      
