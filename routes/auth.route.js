@@ -46,7 +46,7 @@ router.post("/login",async(req,res,next)=>{
                 const messages = req.flash();
                 //res.send(userData)
                  req.session.user = userData;
-                 res.render("authSuccessfull",{messages,newUser:userData,msg:`Happy to meet you again`})
+                 res.render("authSuccessfull",{messages,user:userData,newUser:userData,msg:`Happy to meet you again`})
                 }
             }
             
@@ -98,6 +98,14 @@ router.post("/logout",async(req,res,next)=>{
     try{
         res.send("logout")
     }catch(err){console.log("error in index router",err)}
+})
+
+router.get("/logout",async(req,res,next)=>{
+    try{
+        req.session.destroy((err) => {
+            res.redirect('/') // will always fire after session is destroyed
+          })
+    }catch(err){next(err)}
 })
 
 module.exports=router;
