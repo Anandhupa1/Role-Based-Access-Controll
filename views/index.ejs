@@ -1,3 +1,70 @@
 <%- include('./layouts/header') %>
 
+<!-- hero section starts  -->
+<header>
+   
+  
+    <!-- Background image -->
+    <div class="p-5 text-center bg-image" style="
+        background-image: url('https://supertokens.com/covers/what-is-rbac-cover.png');
+        height: 400px;
+        
+        margin-top: 0px;
+      ">
+      <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
+        <div class="d-flex justify-content-center align-items-center h-100">
+          <div class="text-white">
+            <h1 class="mb-3">Role Based Access Control</h1>
+            <h4 class="mb-3">Node.js | EJS | MongoDB  </h4>
+            <a class="btn btn-outline-light btn-lg" href="/auth/login" role="button">
+                <% if (user) { %>
+                 Hi <%= user.name  %>! welcome
+                <% }else{ %>
+                    Get Started
+                <% } %>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Background image -->
+  </header>
+<!-- hero section ends  -->
+
+
+
+<!-- about section starts  -->
+<section class="text-center text-md-start p-5">
+    <h4 class="mb-5"><strong>About</strong></h4>
+
+    <!-- Post -->
+    <div class="row">
+      <div class="col-md-4 mb-4">
+        <div class="bg-image hover-overlay shadow-1-strong rounded ripple" data-mdb-ripple-color="light">
+          <img src="https://uploads-ssl.webflow.com/5c9200c49b1194323aff7304/61e00e194e1ac414b380926d_RBAC-570x330.png" class="img-fluid" />
+          <a href="#!">
+            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-8 mb-4">
+        
+        <p>
+            The primary purpose of this project is to facilitate the learning process of RBAC (Role-Based Access Control) and the EJS (Embedded JavaScript) templating language. By engaging in this project, individuals can gain valuable insights and hands-on experience in understanding how RBAC systems operate, enabling them to effectively manage access control within an application. Additionally, participants will familiarize themselves with EJS, a powerful templating language that allows for dynamic content generation and efficient data rendering in web development. 
+        </p>
+
+      <a href="/documentation"> <button type="button" class="btn btn-dark">Documentation</button></a> 
+      </div>
+    </div>
+
+
+
+  </section>
+  <!--Section: Content-->
+<!-- about section ends  -->
+
+
+
+
 <%- include('./layouts/footer') %>
