@@ -47,7 +47,7 @@ Start the server
 
 To run the backend server of this project, you will need to add the following environment variables to your .env file inside Backend folder.
 
-`port` `mongoUrl` `sessionSecret``adminEmail` `GOOGLE_CLIENT_ID` `GOOGLE_CLIENT_SECRET`
+`port` `mongoUrl` `sessionSecret` `adminEmail` `GOOGLE_CLIENT_ID` `GOOGLE_CLIENT_SECRET`
 
 
 
