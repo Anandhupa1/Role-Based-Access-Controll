@@ -2,7 +2,6 @@
 
 
 
-
 The primary purpose of this project is to facilitate the learning process of RBAC (Role-Based Access Control) and the EJS (Embedded JavaScript) templating language. By engaging in this project, individuals can gain valuable insights and hands-on experience in understanding how RBAC systems operate, enabling them to effectively manage access control within an application. Additionally, participants will familiarize themselves with EJS, a powerful templating language that allows for dynamic content generation and efficient data rendering in web development. Through practical implementation and exploration of these concepts, learners can enhance their proficiency in RBAC and leverage EJS to create more flexible and dynamic web applications.
 
 Deployed link<a href="https://rbac-4f09.onrender.com/">  Click here</a> <br> 
