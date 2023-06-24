@@ -2,6 +2,9 @@ const router = require("express").Router();
 const bcrypt = require("bcrypt")
 const  { UserModel} = require("../models/user.model")
 const sessionStorage = require("sessionstorage");
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
+const {passport} = require("../configs/google.oAuth")
+
 router.get("/login",ensureNotAuthenticated,async(req,res,next)=>{
     try{
 
@@ -107,6 +110,56 @@ router.get("/logout",async(req,res,next)=>{
           })
     }catch(err){next(err)}
 })
+
+
+
+// google auth implimentation starts here___________________________________________________________
+router.get('/google',
+  passport.authenticate('google', { scope:
+      [ 'email', 'profile' ] }
+));
+
+router.get( '/google/callback',
+    passport.authenticate( 'google', {
+
+       
+        failureRedirect: '/auth/login', //again redirecting to login page
+        session:false//we are not using session, if you want to use session you can remove this.
+}),
+async (req,res)=>{
+
+//console.log(req.user)
+let userData ; 
+let userExists= await UserModel.findOne({email:req.user.email});
+if(userExists){userData=userExists
+}else {
+
+ let newUser =new UserModel(req.user);
+ await newUser.save();
+ userData = newUser;
+}
+
+// res.locals.user=userData;
+// console.log(userData)
+// res.render("index")
+// store user data in session 
+req.flash("success",` Hi ${userData.name} !, login successfull `);
+const messages = req.flash();
+req.session.user = userData;
+res.render("authSuccessfull",{user:userData,newUser:userData,adminView:false,msg:`Happy to meet you again`})
+// console.log(userData)
+// res.redirect("/") //redirect to any page
+}
+
+);
+// google auth implimentation starts here______________________________________________________________
+
+
+
+
+
+
+
 
 module.exports=router;
 

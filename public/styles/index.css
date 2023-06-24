@@ -6,7 +6,7 @@ body{
    display: flex;
    flex-direction: column;
    align-items: center;
-   justify-content: center;
+   justify-content: flex-start;
    height: 100vh;
   
  }
@@ -14,6 +14,7 @@ body{
  .error-image {
    width: 200px;
    height: auto;
+   border-radius: 50%;
    margin-bottom: 20px;
  }
 

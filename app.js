@@ -32,7 +32,14 @@ app.use(session({
 //flash
 app.use(connectFlash())
 app.use((req,res,next)=>{
-    if(req.session.user){res.locals.user=req.session.user}
+    if(res.locals.user){}
+    else if(req.session.user ){
+        res.locals.user=req.session.user
+        if(req.session.user.role!=="ADMIN"){
+            res.locals.adminView=false
+        }
+    
+    }
     else {res.locals.user=false}
     
    
@@ -44,6 +51,7 @@ app.use("/",require("./routes/index.route"));
 app.use("/user",require("./routes/user.route"));
 app.use("/auth",require("./routes/auth.route"));
 app.use("/admin",require("./routes/admin.router"))
+
 app.use((req,res,next)=>{
     next(createHttpErrors.NotFound())
 })
@@ -53,9 +61,6 @@ app.use((error,req,res,next)=>{
     res.render("error404",{error}) //or render any error page with ejs
     
 })
-
-
-
 
 
 

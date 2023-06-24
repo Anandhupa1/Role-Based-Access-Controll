@@ -3,10 +3,10 @@
 
         <%- include('./layouts/header') %>
 
-<div class="container">
-    <div class="error-container">
+
+    <div  class="error-container">
        
-        <img src=<%=newUser.profilePic %> alt="Error Image" class="error-image">
+        <img src=<%=newUser.profilePic %> alt="Error Image" class="error-image ">
         
         <h3 class="display-4"> Hi <%= newUser.name %> !</h3>
         <p><%= msg %></p>
@@ -14,6 +14,6 @@
         <a href="/" class="btn btn-success">continue</a>
      
     </div>
-  </div>
+
 
 <%- include('./layouts/footer') %>
